@@ -53,21 +53,21 @@ export default function TextForm(props) {
                     <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{ backgroundColor: props.theme === 'light' ? 'white' :props.theme === 'dark' ? 'gray'  : props.theme === 'primary' ? 'blue' : props.theme === 'success' ? 'green' : 'white', color: props.theme === 'light' ? 'black' : 'white' }}></textarea>
                 </div>
                 <div>
-                    <button className="btn btn-primary m-1" onClick={handleUpClick}>Convert to Upper Case</button>
-                    <button className="btn btn-primary m-1" onClick={handleLoClick}>Convert to Lower Case</button>
-                    <button className="btn btn-primary m-1" onClick={handleCaClick}>Convert to Capitalize</button>
-                    <button className="btn btn-primary m-1" onClick={handleResetClick}>Reset Textarea</button>
-                    <button className="btn btn-primary m-1" onClick={handleReplaceClick}>Replace Text</button>
-                    <button className="btn btn-primary m-1" onClick={handleCopyClick}>Copy Text</button>
-                    <button className="btn btn-primary m-1" onClick={handleExtraSpaceClick}>Remove Extra Space</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleUpClick}>Convert to Upper Case</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleLoClick}>Convert to Lower Case</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleCaClick}>Convert to Capitalize</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleCopyClick}>Copy Text</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleExtraSpaceClick}>Remove Extra Space</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleReplaceClick}>Replace Text</button>
+                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleResetClick}>Reset Textarea</button>
                 </div>
             </div>
             <div className="container my-3" style={{ color: props.theme === 'light' ? 'black' : 'white' }}>
                 <h2>Your text Summary</h2>
-                <p>{text.split(" ").filter(word => word.length > 0).length} words and {text.length} characters</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").filter(word => word.length > 0).length} Minutes to read</p>
                 <h2>Preview</h2>
-                <p>{text.length > 0 ? text: "Enter somthing in the textbox"}</p>
+                <p>{text.length > 0 ? text: "Nothing to preview"}</p>
             </div>
         </>
     )
