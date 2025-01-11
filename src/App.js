@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   // const [mode, setMode] = useState('light');
@@ -56,25 +56,18 @@ function App() {
     <>
     {/* <Router> */}
   {/* <Navbar title="Textutils" aboutText="About" mode={mode} toggleMode={toggleMode} /> */}
-   <Navbar title="Textutils" aboutText="About" theme={theme} toggleTheme={toggleTheme}/>
-  <Alert alert={alert}/>
+   {/* <Navbar title="Textutils" aboutText="About" theme={theme} toggleTheme={toggleTheme}/> */}
+  {/* <Alert alert={alert}/> */}
   <div className="container my-5"> 
-    {/* <Switch>
-      <Route path="/About">
-        <About />
-      </Route>
-      <Route path="/">
-      <TextForm showAlert={showAlert} heading="Enter the text to analyze below" theme={theme}/>
-      </Route>
-    </Switch> */}
+    
     {/* <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/> */}
-    <TextForm showAlert={showAlert} heading="Enter the text to analyze below" theme={theme}/>
+    {/*<TextForm showAlert={showAlert} heading="Enter the text to analyze below" theme={theme}/>*/}
     
     {/* <About/> */}
   </div>
   {/* </Router> */}
 
-      {/* <Router>
+      <Router>
         <Navbar title="Textutils" aboutText="About" theme={theme} toggleTheme={toggleTheme} />
         <Alert alert={alert} />
         <div className="container my-5">
@@ -83,7 +76,7 @@ function App() {
             <Route exact path="/about" element={<About />} />
           </Routes>
         </div>
-      </Router> */}
+      </Router>
     </>
   );
 }
