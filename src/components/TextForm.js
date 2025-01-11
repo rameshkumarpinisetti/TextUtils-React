@@ -30,6 +30,7 @@ export default function TextForm(props) {
         let newText = document.getElementById('myBox');
         newText.select();
         navigator.clipboard.writeText(newText.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Text Copied", "success");
     }
     const handleExtraSpaceClick = () => {
@@ -42,7 +43,7 @@ export default function TextForm(props) {
         setText(event.target.value);
     }
 
-    
+    let buttonClass = `btn btn-${props.theme} m-1 my-1`;
     // text = "new text"; wrong way to change the state
     // setText("new text"); // correct way to change the state
     return (
@@ -53,13 +54,13 @@ export default function TextForm(props) {
                     <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{ backgroundColor: props.theme === 'light' ? 'white' :props.theme === 'dark' ? 'gray'  : props.theme === 'primary' ? 'blue' : props.theme === 'success' ? 'green' : 'white', color: props.theme === 'light' ? 'black' : 'white' }}></textarea>
                 </div>
                 <div>
-                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleUpClick}>Convert to Upper Case</button>
-                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleLoClick}>Convert to Lower Case</button>
-                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleCaClick}>Convert to Capitalize</button>
-                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleCopyClick}>Copy Text</button>
-                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleExtraSpaceClick}>Remove Extra Space</button>
-                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleReplaceClick}>Replace Text</button>
-                    <button disabled={text.length===0} className="btn btn-primary m-1 my-1" onClick={handleResetClick}>Reset Textarea</button>
+                    <button disabled={text.length===0} className={buttonClass} onClick={handleUpClick}>Convert to Upper Case</button>
+                    <button disabled={text.length===0} className={buttonClass} onClick={handleLoClick}>Convert to Lower Case</button>
+                    <button disabled={text.length===0} className={buttonClass} onClick={handleCaClick}>Convert to Capitalize</button>
+                    <button disabled={text.length===0} className={buttonClass} onClick={handleCopyClick}>Copy Text</button>
+                    <button disabled={text.length===0} className={buttonClass} onClick={handleExtraSpaceClick}>Remove Extra Space</button>
+                    <button disabled={text.length===0} className={buttonClass} onClick={handleReplaceClick}>Replace Text</button>
+                    <button disabled={text.length===0} className={buttonClass} onClick={handleResetClick}>Reset Textarea</button>
                 </div>
             </div>
             <div className="container my-3" style={{ color: props.theme === 'light' ? 'black' : 'white' }}>

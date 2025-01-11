@@ -38,15 +38,15 @@ function App() {
       showAlert("Dark mode has been enabled", "success");
       document.title = 'TextUtils - Dark Mode';
     } else if (newTheme === 'primary') {
-      document.body.style.backgroundColor = 'blue';
+      document.body.style.backgroundColor = '#1c1c8f';
       showAlert("Blue mode has been enabled", "success");
       document.title = 'TextUtils - Blue Mode';
     } else if (newTheme === 'success') {
-      document.body.style.backgroundColor = 'green';
+      document.body.style.backgroundColor = '#1b601b';
       showAlert("Green mode has been enabled", "success");
       document.title = 'TextUtils - Green Mode';
     } else {
-      document.body.style.backgroundColor = 'white';
+      document.body.style.backgroundColor = '#dee2e6';
       showAlert("Light mode has been enabled", "success");
       document.title = 'TextUtils - Light Mode';
     }
